@@ -16,10 +16,10 @@ void add(Tree*&h, int n){
         cout<<"Число "<<n<<" добавлено в дерево!"<<endl;
     }
     else{
-        if (h->info < n){
+        if (h->info > n){
             add(h->left,n);
         }
-        else if (h->info > n){
+        else if (h->info < n){
             add(h->right, n);
         }
         else{
@@ -35,10 +35,10 @@ void search(Tree*&h,int n){
         return;
     }
     else{
-        if (h->info < n){
+        if (h->info > n){
             search(h->left,n);
         }
-        else if (h->info > n){
+        else if (h->info < n){
             search(h->right, n);
         }
         else{
@@ -48,11 +48,22 @@ void search(Tree*&h,int n){
 }
 
 void del(Tree*&h){
+    if (h->left){
+        del(h->left);
+    }
+    if (h->right){
+        del(h->right);
+    }
+    delete h;
 }
+
 int main() {
     setlocale(LC_ALL, "Russian");
+
     Tree *Root,*p;
     int x;
+
+    cout<<"Введите числа (для окончания введите 0): "<<endl;
 
     while(true){
         cin>>x;
@@ -62,14 +73,16 @@ int main() {
         add(Root,x);
 
     }
+
     while(true){
-        cout<<"Введите число, которое хотите найти: "<<endl;
+        cout<<"Введите число, которое хотите найти (для окончания введите 0): "<<endl;
         cin>>x;
         if (x == 0){
             break;
         }
         search(Root,x);
     }
-
+    del(Root);
+    cout<<"Дерево очищено!"<<endl;
     return 0;
 }
