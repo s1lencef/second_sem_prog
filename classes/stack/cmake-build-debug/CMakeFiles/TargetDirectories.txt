@@ -1,0 +1,3 @@
+/cygdrive/e/LETI/1_kurs/prog/classes/cmake-build-debug/CMakeFiles/classes.dir
+/cygdrive/e/LETI/1_kurs/prog/classes/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/e/LETI/1_kurs/prog/classes/cmake-build-debug/CMakeFiles/rebuild_cache.dir
